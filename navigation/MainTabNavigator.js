@@ -3,23 +3,22 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 import SampleScreen from '../screens/SampleScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import LibraryScreen from '../screens/LibraryScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+const ProfileStack = createStackNavigator({
+  Profile: ProfileScreen,
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-person${focused ? '' : '-outline'}` : 'md-person'
       }
     />
   ),
@@ -34,27 +33,27 @@ SampleStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+      name={Platform.OS === 'ios' ? `ios-bookmark${focused ? '' : '-outline'}` : 'md-bookmark'}
     />
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const LibraryStack = createStackNavigator({
+  Library: LibraryScreen,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+LibraryStack.navigationOptions = {
+  tabBarLabel: 'Library',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+      name={Platform.OS === 'ios' ? `ios-book${focused ? '' : '-outline'}` : 'md-book'}
     />
   ),
 };
 
 export default createBottomTabNavigator({
-  HomeStack,
+  ProfileStack,
   SampleStack,
-  SettingsStack,
+  LibraryStack,
 });
