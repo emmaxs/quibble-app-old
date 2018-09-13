@@ -10,3 +10,7 @@ Three screens. One that holds hardcoded "user" data. Another that holds the hard
 Working on adding splash screen.
 
 Eventually working on the databases holding users and books.
+
+### To-Do
+
+Figure out padding on top of images
