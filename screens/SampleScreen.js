@@ -4,10 +4,11 @@ import { ExpoLinksView } from '@expo/samples';
 
 export default class SampleScreen extends React.Component {
   static navigationOptions = {
-    title: 'Daily Book Sample',
+    title: 'Daily Sample',
   };
 
   render() {
+    /* Hardcoded sample scroll page */
     return (
       <ScrollView style={styles.container}>
         {<Text style={{fontSize:28}}>Two-Point Six</Text>}

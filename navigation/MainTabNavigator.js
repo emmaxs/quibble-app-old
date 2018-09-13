@@ -7,23 +7,6 @@ import ProfileScreen from '../screens/ProfileScreen';
 import SampleScreen from '../screens/SampleScreen';
 import LibraryScreen from '../screens/LibraryScreen';
 
-const ProfileStack = createStackNavigator({
-  Profile: ProfileScreen,
-});
-
-ProfileStack.navigationOptions = {
-  tabBarLabel: 'Profile',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-person${focused ? '' : '-outline'}` : 'md-person'
-      }
-    />
-  ),
-};
-
 const SampleStack = createStackNavigator({
   Sample: SampleScreen,
 });
@@ -52,8 +35,25 @@ LibraryStack.navigationOptions = {
   ),
 };
 
+const ProfileStack = createStackNavigator({
+  Profile: ProfileScreen,
+});
+
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Profile',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-person${focused ? '' : '-outline'}` : 'md-person'
+      }
+    />
+  ),
+};
+
 export default createBottomTabNavigator({
-  ProfileStack,
   SampleStack,
   LibraryStack,
+  ProfileStack,
 });
